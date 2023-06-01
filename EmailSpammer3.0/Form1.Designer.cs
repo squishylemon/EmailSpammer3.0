@@ -55,12 +55,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.Emails = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.Emails = new System.Windows.Forms.ListBox();
             emailadd_utton = new System.Windows.Forms.Button();
             button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -70,7 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // emailadd_utton
@@ -355,27 +353,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.Emails);
-            this.panel3.Location = new System.Drawing.Point(17, 150);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(372, 255);
-            this.panel3.TabIndex = 3;
-            // 
-            // Emails
-            // 
-            this.Emails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Emails.FormattingEnabled = true;
-            this.Emails.ItemHeight = 15;
-            this.Emails.Location = new System.Drawing.Point(3, 3);
-            this.Emails.Name = "Emails";
-            this.Emails.ScrollAlwaysVisible = true;
-            this.Emails.Size = new System.Drawing.Size(362, 240);
-            this.Emails.TabIndex = 0;
-            this.Emails.SelectedIndexChanged += new System.EventHandler(this.Emails_SelectedIndexChanged);
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(314, 415);
@@ -417,16 +394,32 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // Emails
+            // 
+            this.Emails.BackColor = System.Drawing.SystemColors.Control;
+            this.Emails.Font = new System.Drawing.Font("MS Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Emails.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.Emails.FormattingEnabled = true;
+            this.Emails.ItemHeight = 11;
+            this.Emails.Items.AddRange(new object[] {
+            "Emailer Is Ready!"});
+            this.Emails.Location = new System.Drawing.Point(17, 147);
+            this.Emails.Name = "Emails";
+            this.Emails.ScrollAlwaysVisible = true;
+            this.Emails.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.Emails.Size = new System.Drawing.Size(367, 257);
+            this.Emails.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Emails);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -444,7 +437,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -476,11 +468,10 @@
         private Button button2;
         private Label label9;
         private TextBox amountTextBox;
-        private Panel panel3;
-        private ListBox Emails;
         private Button button3;
         private ComboBox comboBox1;
         private Button button4;
         private Button button5;
+        private ListBox Emails;
     }
 }

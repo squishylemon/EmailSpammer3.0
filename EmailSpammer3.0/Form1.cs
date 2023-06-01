@@ -28,7 +28,8 @@ namespace EmailSpammer3._0
         public Form1()
         {
             InitializeComponent();
-            Emails = new ListBox();
+            
+
         }
 
         private void emailadd_utton_Click(object sender, EventArgs e)
@@ -179,7 +180,8 @@ namespace EmailSpammer3._0
 
                         
                         tasks.Add(Task.Run(() => SendEmailOutlook(fromEmail, fromPassword, spamTargetsArray, subjectTextbox.Text, descTextBox.Text)));
-
+                        
+                        EmailSent();
                     }
                 }
             }
@@ -191,6 +193,8 @@ namespace EmailSpammer3._0
 
         private void SendEmailOutlook(string fromEmail, string fromPassword, string[] toEmailArray, string subject, string body)
         {
+            
+
             try
             {
                 var message = new MimeMessage();
@@ -199,7 +203,8 @@ namespace EmailSpammer3._0
                 {
                     message.To.Add(new MailboxAddress(toEmail.Trim(), toEmail.Trim()));
                 }
-                message.Subject = subject;
+                emailIndex++;
+                message.Subject = subject + "(" + emailIndex + ")";
                 var builder = new BodyBuilder();
                 builder.HtmlBody = body;
                 if (Attachment1 != null)
@@ -235,11 +240,7 @@ namespace EmailSpammer3._0
 
                     
 
-                    
                 }
-                emailIndex++;
-                string sentEmailMessage = string.Format("Email successfully sent ({0}): From: {1}, To: {2}", emailIndex, fromEmail, string.Join(", ", toEmailArray));
-                Emails.Items.Add(sentEmailMessage);
 
             }
             catch (Exception ex)
@@ -248,14 +249,21 @@ namespace EmailSpammer3._0
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Error sending email retrying...");
                     Console.ForegroundColor = ConsoleColor.Green;
+                emailIndex--;
                     SendEmailOutlook(fromEmail, fromPassword, toEmailArray, subject, body);
                 
                
             }
         }
 
+        private void EmailSent()
+        {
+            Emails.Items.Add("Email sending..");
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            ;
             // Clear existing items in comboBox1 (optional)
             comboBox1.Items.Clear();
 
@@ -266,6 +274,7 @@ namespace EmailSpammer3._0
                 comboBox1.Items.AddRange(savedData.Cast<string>().ToArray());
             }
 
+            
 
 
         }
